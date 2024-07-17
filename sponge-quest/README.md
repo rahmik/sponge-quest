@@ -105,5 +105,17 @@ The SpongeBob Card Matching Memory Game is a fun and engaging memory challenge f
 
 [![General-Assembly-65.jpg](https://i.postimg.cc/QNmfwszV/General-Assembly-65.jpg)](https://postimg.cc/23qdBprf)
 
-**Timeline*
+
+## Week 1: Planning and Initial Setup
+
+| Date       | Day         | Task                                               | Notes/Thoughts |
+|------------|-------------|----------------------------------------------------|----------------|
+| **July 16**| **Tuesday** | Complete Proposal and Create Initial HTML and CSS Scaffolding | Write down what the game will do, list features, and create the basic HTML and CSS for the game layout. |
+| **July 17**| **Wednesday**| Create Welcome Screen, Game Screen, and End Screen HTML and CSS | Make separate sections in HTML for the start screen, game area, and end screen. Style them with CSS and deploy. |
+| **July 18**| **Thursday**| Implement JavaScript for Card Creation, Shuffling, and Display | Start a JavaScript file, write simple steps for the game, and make cards show up in a random order and finish MVP. |
+| **July 19**| **Friday**  | Develop Card Flipping Mechanism and Matching Logic | Add code to flip cards when clicked and check if two cards match. Use CSS for flip animations. |
+| **July 20**| **Saturday**| Integrate Score Tracking, Feedback, and Timer | Track how many tries and matches the player makes. Show this info on the game screen. Add a countdown timer. |
+| **July 21**| **Sunday**  | Add Sound Effects, Celebratory Audio, and Conduct Thorough Testing | Add sounds for flipping cards and matching pairs. Test the game to find and fix any problems. |
+ 
+
 
