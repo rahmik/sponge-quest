@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (isMatch) {
             if (firstCardImage === 'https://i.postimg.cc/tJ73dPbP/goofy.webp') {
-                goofyCardSound.play().catch(err => console.log('Goofy sound error:', err));
+                 .play().catch(err => console.log('Goofy sound error:', err));
             }
             if (firstCardImage === 'https://i.postimg.cc/tJWBnwHw/spongedrunk.webp') {
                 drunkSound.play().catch(err => console.log('Drunk sound error:', err));

@@ -45,6 +45,9 @@ The SpongeBob Card Matching Memory Game is a fun and engaging memory challenge f
 ### Sound Effects
 - **Audio Feedback**: Sound effects for matching pairs, mismatches, and game completion.
 
+## Attributions
+Chat GPT.
+
 ## Technologies Used
 - **HTML/CSS**: For layout and styling.
 - **JavaScript**: For game logic and interactivity.
@@ -58,7 +61,7 @@ The SpongeBob Card Matching Memory Game is a fun and engaging memory challenge f
 1. **Instructions**: As a user, I want to see the game instructions so that I understand how to play and what the rules are.
 2. **Start Game**: As a user, I want to start a new game so that I can play the card matching game.
 3. **Flip Cards**: As a user, I want to click on cards to flip them so that I can see the images.
-4. **Match Cards**: As a user, I want the cards to stay face up if they match so that I know I've found a pair.
+4. **Match Cards**: As a user, I want the cards to stay faced up if they match so that I know I've found a pair.
 5. **Mismatch Feedback**: As a user, I want the cards to flip back if they don't match so that I can try again.
 6. **Score Tracking**: As a user, I want the game to keep track the time so that I can see my progress.
 7. **End Game**: As a user, I want to see a game over screen with my score so that I know when the game has ended.
