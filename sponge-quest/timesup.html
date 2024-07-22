@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time's Up Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('Sounds/sky.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Freckle Face', cursive;
+            text-align: center;
+        }
+
+        .message-container {
+            background: rgba(255, 215, 0, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .message {
+            font-size: 2.5rem;
+            color: #d7138c;
+        }
+
+        .replay-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #1a17dd;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .replay-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <div class="message">
+            Time's Up! You did not succeed in matching all the cards.
+        </div>
+        <a href="index.html" class="replay-button">Replay</a>
+        <audio autoplay >
+            <source src="Sounds/spongebob-fail.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </body>
+    </html>

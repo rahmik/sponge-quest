@@ -27,7 +27,7 @@ body {
 
 .game-container h1 {
     font-family: 'Londrina Shadow', cursive;
-    font-weight: normal; /* Adjusted font weight */
+    font-weight: normal; 
     font-size: 5rem;
     margin-bottom: 2px;
     letter-spacing: 6px;

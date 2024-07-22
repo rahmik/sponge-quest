@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0.5%;
+            padding-bottom: 3%;
+            margin-left: -15%;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-family: 'Freckle Face', cursive;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: url('./Sounds/BUBBLENITA.avif') no-repeat center center;
+            background-size: cover;
+        }
+        .content {
+            z-index: 1;
+            animation: zoom-in 0.5s ease-out forwards;
+        }
+        .result-box {
+            background-color: rgba(63, 9, 62, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            text-align: center; 
+        }
+        h1 {
+            font-size: 4rem; 
+            margin-bottom: 0.5rem; 
+            line-height: 1.2; 
+            text-shadow: 8px 3px 0 #6a0dad, -2px -2px 0 #6a0dad;
+        }
+        p {
+            font-size: 1.5rem; 
+            margin-top: 0.5rem; 
+            line-height: 1.3; 
+        }
+        .replay-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            background-color: #dcc80d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .replay-button:hover {
+            background-color: #a810ee;
+        }
+        @keyframes zoom-in {
+            0% {
+                transform: scale(0.1);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <div class="result-box">
+            <h1>Bikini Bottom Legend!</h1>
+            <p>You've matched all the cards!</p>
+            <p id="current-time"></p>
+            <p id="best-time"></p>
+            <a href="index.html" class="replay-button">Replay</a>
+        </div>
+    </div>
+    <audio id="bg-sound" src="./Sounds/victoryscreech.mp3" autoplay loop></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentTimeElement = document.getElementById('current-time');
+            const bestTimeElement = document.getElementById('best-time');
+
+           
+            const elapsedTime = localStorage.getItem('elapsedTime');
+            currentTimeElement.textContent = `Your time: ${formatTime(elapsedTime)}`;
+
+            
+            let bestTime = localStorage.getItem('bestTime');
+
+            if (bestTime === null || elapsedTime < bestTime) {
+               
+                localStorage.setItem('bestTime', elapsedTime);
+                bestTime = elapsedTime;
+            }
+
+            bestTimeElement.textContent = `Best time: ${formatTime(bestTime)}`;
+
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+        });
+    </script>
+</body>
+</html>

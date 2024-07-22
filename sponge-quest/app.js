@@ -11,11 +11,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const clickSound = document.getElementById('clickSound');
     const bgSound = document.getElementById('bg-sound');
     const goofyCardSound = document.getElementById('goofy-cardSound');
+    const drunkSound = document.getElementById('drunkSound');
+    const bootySound = document.getElementById('bootySound');
+    const squadSound = document.getElementById('squadSound');
+    const patstripSound = document.getElementById('patstripSound');
+    const screamSound = document.getElementById('screamSound');
+    const pockSound = document.getElementById('pockSound');
     const playButton = document.getElementById('playButton');
     const howToPlayButton = document.getElementById('howToPlayButton');
+    const backgroundAudio = document.getElementById('backgroundAudio');
 
-    bgSound.volume = 0.5;
-    clickSound.volume = 0.9;
+    if (backgroundAudio) {
+        backgroundAudio.volume = 0.2; 
+        backgroundAudio.loop = true; 
+        backgroundAudio.play().catch(err => console.log('Background audio play error:', err));
+    }
+
+    if (bgSound) {
+        bgSound.volume = 0.2;
+        bgSound.loop = true;
+        bgSound.play().catch(err => console.log('Audio play error:', err));
+    }
+
+    if (clickSound) {
+        clickSound.volume = 0.9;
+    }
 
     function startTimer() {
         startTime = Date.now();
@@ -25,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateTimer() {
         const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
         timerDisplay.textContent = formatTime(elapsedTime);
+
+        if (elapsedTime >= 60) {
+            stopTimer();
+            window.location.href = 'timesup.html'; 
+        }
     }
 
     function stopTimer() {
@@ -36,9 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const secs = seconds % 60;
         return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
     }
-
-    bgSound.loop = true;
-    bgSound.play();
 
     setTimeout(() => {
         cards.forEach(card => card.classList.add('flipped'));
@@ -58,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this === firstCard) return;
 
         this.classList.add('flipped');
-        clickSound.play();
+        clickSound.play().catch(err => console.log('Click sound error:', err));
         
         if (!firstCard) {
             firstCard = this;
@@ -78,7 +100,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (isMatch) {
             if (firstCardImage === 'https://i.postimg.cc/tJ73dPbP/goofy.webp') {
-                goofyCardSound.play();
+                goofyCardSound.play().catch(err => console.log('Goofy sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/tJWBnwHw/spongedrunk.webp') {
+                drunkSound.play().catch(err => console.log('Drunk sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/6qPzSKf8/krusty-booty.jpg') {
+                bootySound.play().catch(err => console.log('Booty sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/zBGG2YBZ/squad.webp') {
+                squadSound.play().catch(err => console.log('Squad sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/9MGxrs2S/patricksplits.jpg') {
+                patstripSound.play().catch(err => console.log('Patstrip sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/441Y1wxT/scream.jpg') {
+                screamSound.play().catch(err => console.log('Scream sound error:', err));
+            }
+            if (firstCardImage === 'https://i.postimg.cc/GhWnTnn3/mockery.jpg') {
+                pockSound.play().catch(err => console.log('Pock sound error:', err)); 
             }
             disableCards();
         } else {
@@ -93,10 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
         score++;
         scoreDisplay.textContent = `Score: ${score}/8`;
 
+    //CHATP GPT BELOW
         if (matchedPairs === 8) {
             stopTimer();
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000); 
+            localStorage.setItem('elapsedTime', elapsedTime); 
+
+            // Retrieve the best time from localStorage
+            let bestTime = localStorage.getItem('bestTime');
+
+            if (bestTime === null || elapsedTime < bestTime) {
+                // Update the best time if the current time is better
+                localStorage.setItem('bestTime', elapsedTime);
+            }
+
             setTimeout(() => {
-                alert(`Congratulations! You've found all matches in ${timerDisplay.textContent}!`);
+                window.location.href = 'gameover.html';
             }, 500);
         }
 
@@ -132,4 +184,3 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('How to Play button not found');
     }
 });
-

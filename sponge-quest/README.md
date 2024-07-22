@@ -14,8 +14,8 @@ The SpongeBob Card Matching Memory Game is a fun and engaging memory challenge f
 - **Interactivity**: Player will click on cards to flip them.
 
 ### Score
-- **Tracking**: The game keeps track of the number of attempts and matched pairs.
-- **Feedback**: Visual and/or auditory feedback is provided for matches and mismatches.
+- **Tracking**: The game keeps track of how many matches you matched within one minute and times how many seconds it took to do so. 
+- **Feedback**: Auditory feedback is provided for matches and mismatches.
 
 ## Game Mechanics
 ### Starting the Game
@@ -78,7 +78,6 @@ The SpongeBob Card Matching Memory Game is a fun and engaging memory challenge f
 // 2. Use CSS to hide/show sections based on game state.
   // Register click events for starting the game and flipping cards.
   // Initialize game state and start timer.
-  // Create card objects, shuffle them, and display on the game board.
   // Initialize score and timer.
   // Flip the card and check for matches.
   // If cards match, keep them face up.
